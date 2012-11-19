@@ -46,11 +46,3 @@ test:
   pool: 5
   username: rgmanager
   password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: rgmanager_production
-  pool: 5
-  username: rgmanager
-  password:
