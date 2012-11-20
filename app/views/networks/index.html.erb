@@ -1,0 +1,22 @@
+<h1>Listing networks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @networks.each do |network| %>
+  <tr>
+    <td><%= network.name %></td>
+    <td><%= link_to 'Show', network %></td>
+    <td><%= link_to 'Join', join_network_path(network), method: :put %></td>
+    <td><%= link_to 'Edit', edit_network_path(network) %></td>
+    <td><%= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Network', new_network_path %>

@@ -1,9 +1,11 @@
 class Event < ActiveRecord::Base
   # attr_accessible :title, :body
-  has_many :roles
+  has_many :roles, :as => :authorizable
   has_many :applications
-  has_many :participants, :as => :user, :through => :roles, :source => :user, :conditions => "authorizable_type = 'participant'"
-  has_many :coaches, :as => :user, :through => :roles, :source => :user, :conditions => "authorizable_type = 'coach'"
-  has_many :volunteers, :as => :user, :through => :roles, :source => :user, :conditions => "authorizable_type = 'volunteer'"
-  has_many :organizers, :as => :user, :through => :roles, :source => :user, :conditions => "authorizable_type = 'organizer'"
+  has_many :participants,  :through => :roles, :source => :user, :conditions => "name = 'participant'"
+  has_many :coaches, :through => :roles, :source => :user, :conditions => "name = 'coach'"
+  has_many :volunteers,  :through => :roles, :source => :user, :conditions => "name = 'volunteer'"
+  has_many :organizers, :through => :roles, :source => :user, :conditions => "name = 'organizer'"
+
+  belongs_to :network
 end

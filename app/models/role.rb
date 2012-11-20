@@ -6,4 +6,5 @@ class Role < ActiveRecord::Base
   attr_accessible :name, :authorizable, :user
   belongs_to :user
   belongs_to :authorizable, :polymorphic => true
+
 end

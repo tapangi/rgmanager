@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118212241) do
+ActiveRecord::Schema.define(:version => 20121120231836) do
 
   create_table "applications", :force => true do |t|
     t.integer  "user_id"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20121118212241) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "picture"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "network_id"
+    t.boolean  "is_alcohol_served", :default => false
   end
 
   create_table "networks", :force => true do |t|
@@ -71,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20121118212241) do
     t.string   "authentication_token"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

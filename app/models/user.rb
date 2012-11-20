@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :roles
-  has_many :networks, :through => :roles
+  has_many :networks, :through => :roles, :source => :authorizable, :source_type => 'Network', :group => "networks.id"
+
+  validates_presence_of :first_name, :last_name
 end

@@ -6,7 +6,12 @@ Rgmanager::Application.routes.draw do
 
 
   root :to => "home#index"
+  resources :networks do
+    member do
+      put 'join'
+    end
 
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
