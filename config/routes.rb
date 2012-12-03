@@ -1,7 +1,7 @@
 Rgmanager::Application.routes.draw do
   devise_for :users
 
-  #get "home/index"
+  get "dashboard", :to => "dashboard#index"
 
 
 
@@ -10,8 +10,8 @@ Rgmanager::Application.routes.draw do
     member do
       put 'join'
     end
-
   end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
