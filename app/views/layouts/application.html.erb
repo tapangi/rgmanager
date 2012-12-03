@@ -73,15 +73,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="span9">
-      <%= yield %>
-    </div>
     <div class="span3">
       <div class="well sidebar-nav">
         <%= yield(:sidebar) %>
       </div>
       <!--/.well -->
     </div>
+    <div class="span9">
+      <%= yield %>
+    </div>
+
     <!--/span-->
   </div>
   <!--/row-->

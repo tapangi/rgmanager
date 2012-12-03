@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 gem 'devise'
 gem 'carrierwave'
 gem 'cancan'
-gem "countries"
+gem "carmen-rails"
 
 
 # Bundle edge Rails instead:

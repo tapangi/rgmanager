@@ -1,13 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 
 
 <% content_for :sidebar do %>
-  <h3>Sidebar</h3>
-  <ul class="nav nav-list">
-    <li class="nav-header">Sidebar</li>
-    <li><%= link_to "Login", new_user_session_path  %></li>
-    <li><%= link_to "Join Us", new_user_registration_path  %></li>
-
-  </ul>
+    <h3>Upcoming Events</h3>
+    <% @events.each do |event| %>
+      <%= event.name %><br>
+    <% end %>
 <% end %>

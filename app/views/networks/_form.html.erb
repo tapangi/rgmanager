@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div><%= f.label :name %><%= f.text_field :name %></div>
+  <div><%= f.label :country %><%= f.country_select :country_alpha2_code , {priority: %w(US FI CA)}, prompt: 'Please select a country' %></div>
 
+  <div><%= f.label :city %><%= f.text_field :city %></div>
   <div class="actions">
     <%= f.submit %>
   </div>

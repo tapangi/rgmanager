@@ -1,4 +1,5 @@
 class NetworksController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   # GET /networks
   # GET /networks.json
   def index
@@ -24,6 +25,9 @@ class NetworksController < ApplicationController
   # GET /networks/new
   # GET /networks/new.json
   def new
+    #default_countries
+    @default_countries = Carmen::Country.all.select{|c| %w{US CA FI}.include?(c.code)}
+
     @network = Network.new
 
     respond_to do |format|
