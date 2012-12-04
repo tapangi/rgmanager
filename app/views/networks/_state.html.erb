@@ -1,0 +1,6 @@
+<% country_code ||= params[:network] ? params[:network][:country_alpha2_code] : nil %>
+<% country = Carmen::Country.coded(country_code) %>
+<% if !country.nil? and country.subregions? %>
+  <%= label_tag :state_province, "State/Province" %><%= subregion_select :network, :state_province, country_code %>
+<% end %>
+

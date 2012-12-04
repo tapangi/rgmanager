@@ -26,7 +26,7 @@ class NetworksController < ApplicationController
   # GET /networks/new.json
   def new
     #default_countries
-    @default_countries = Carmen::Country.all.select{|c| %w{US CA FI}.include?(c.code)}
+
 
     @network = Network.new
 
@@ -91,5 +91,9 @@ class NetworksController < ApplicationController
     else
       #redirect back
     end
+  end
+
+  def states_or_provinces
+    render :partial => "state", :locals => { :country_code => params[:country_code] }
   end
 end
