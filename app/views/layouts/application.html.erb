@@ -34,14 +34,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">Rails Girls</a>
+      <a class="brand" href="/">Rails Girls</a>
 
       <div class="container nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Networks", "/networks" %></li>
-          <li><%= link_to "Events", "/events" %></li>
-          <li><%= link_to "Materials", "/materials" %></li>
-          <li><%= link_to "Press", "/press" %></li>
+          <li><%= link_to "Networks", networks_path, :class => current_page?(:controller => "/networks") ? "active":"" %></li>
+          <li><%= link_to "Events", events_path, :class => current_page?(:controller => "/events") ? "active":""%></li>
+          <li><%= link_to "Materials", "/materials", :class => "" %></li>
+          <li><%= link_to "About", "/about", :class => "" %></li>
           <li><%= link_to "Blog", "http://blog.railsgirls.com" %></li>
           <li><%= link_to "Guides", "http://guides.railsgirls.com", :class => "last" %></li>
 
@@ -73,16 +73,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="span3">
-      <div class="well sidebar-nav">
-        <%= yield(:sidebar) %>
-      </div>
-      <!--/.well -->
-    </div>
+    <%= yield(:left_bar) %>
     <div class="span9">
       <%= yield %>
     </div>
-
+    <%= yield(:right_bar) %>
     <!--/span-->
   </div>
   <!--/row-->
@@ -98,6 +93,6 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <%= javascript_include_tag "application" %>
-
+<%= yield :scripts %>
 </body>
 </html>

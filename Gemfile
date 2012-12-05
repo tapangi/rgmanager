@@ -6,7 +6,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'cancan'
 gem "carmen-rails"
-
+gem "gmaps4rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

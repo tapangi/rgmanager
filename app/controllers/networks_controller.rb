@@ -4,7 +4,9 @@ class NetworksController < ApplicationController
   # GET /networks.json
   def index
     @networks = Network.all
-
+    @json = Network.all.to_gmaps4rails do |network, marker|
+      marker.json({ :id => network.id, :foo => network.name })
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @networks }
