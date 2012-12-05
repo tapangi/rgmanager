@@ -14,4 +14,16 @@ class User < ActiveRecord::Base
   has_many :networks, :through => :roles, :source => :authorizable, :source_type => 'Network', :group => "networks.id"
 
   validates_presence_of :first_name, :last_name
+
+  def role? (name, resource = nil)
+    if resource.nil?
+      !roles.where(:name => name, :authorizable_type => nil, :authorizable_id => nil).empty?
+    else
+      if resource.class.name == :class.to_s.camelize
+        !roles.where(:name => name, :authorizable_type => resource.to_s).empty?
+      else
+        !roles.where(:name => name, :authorizable_type => resource.class.name, :authorizable_id => resource.id).empty?
+      end
+    end
+  end
 end
