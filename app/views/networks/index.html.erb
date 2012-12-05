@@ -7,17 +7,24 @@
     <th></th>
   </tr>
 
-<% @networks.each do |network| %>
-  <tr>
-    <td><%= network.name %></td>
-    <td><%= link_to 'Show', network %></td>
-    <td><%= link_to 'Join', join_network_path(network), method: :put %></td>
-    <td><%= link_to 'Edit', edit_network_path(network) %></td>
-    <td><%= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @networks.each do |network| %>
+    <tr>
+      <td><%= network.name %></td>
+      <td><%= link_to 'Show', network %></td>
+      <% if can? :join, network %>
+        <td><%= link_to 'Join', join_network_path(network), method: :put %></td>
+      <% end %>
+      <% if can? :update, network %>
+        <td><%= link_to 'Edit', edit_network_path(network) %></td>
+      <% end %>
+      <% if can? :destroy, network %>
+        <td><%= link_to 'Destroy', network, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Network', new_network_path %>
+<br/>
+<% if can? :create, Network %>
+  <%= link_to 'New Network', new_network_path %>
+<% end %>
