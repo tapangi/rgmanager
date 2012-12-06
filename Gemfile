@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'devise'
 gem 'carrierwave'
+gem 'carrierwave_direct'
 gem 'cancan'
 gem "carmen-rails"
 gem "gmaps4rails"

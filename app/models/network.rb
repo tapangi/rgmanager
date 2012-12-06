@@ -2,6 +2,8 @@ class Network < ActiveRecord::Base
   attr_accessible  :country_alpha2_code, :state_province, :city
   has_many :roles, :as => :authorizable
   acts_as_gmappable
+  mount_uploader :network_banner, NetworkBannerUploader
+
 
   def gmaps4rails_address
     #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
