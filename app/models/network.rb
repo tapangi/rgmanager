@@ -5,7 +5,8 @@ class Network < ActiveRecord::Base
 
   def gmaps4rails_address
     #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    "#{self.city}," + (self.state_province.present? ? "#{self.state_province}, " : "") +" #{self.country_name}"
+    #"#{self.city}," + (self.state_province.present? ? "#{self.state_province}, " : "") +" #{self.country_name}"
+    name
   end
 
   def country_name
@@ -19,7 +20,5 @@ class Network < ActiveRecord::Base
     end
 
   end
-  def gmaps
-    true
-  end
+
 end

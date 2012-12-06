@@ -1,30 +1,32 @@
 <h3>Networks around the world</h3>
-<%= gmaps("map_options" => {"detect_location" => false, "center_on_user" => true, "zoom" => 6}, "markers" => {"data" => @json}) %>
+<%= gmaps("map_options" => {"detect_location" => false, "center_on_user" => true, "zoom" => 6}, "markers" => {"data" => @json, "options" => {"do_clustering" => true}}) %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-
-  <% @networks.each do |network| %>
+<% content_for :right_bar do %>
+  <table>
     <tr>
-      <td><%= network.name %></td>
-      <td><%= link_to 'Show', network %></td>
-      <% if can? :join, network %>
-        <td><%= link_to 'Join', join_network_path(network), method: :put %></td>
-      <% end %>
-      <% if can? :update, network %>
-        <td><%= link_to 'Edit', edit_network_path(network) %></td>
-      <% end %>
-      <% if can? :destroy, network %>
-        <td><%= link_to 'Destroy', network, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      <% end %>
+      <th>Name</th>
+      <th></th>
     </tr>
-  <% end %>
-</table>
 
-<br/>
-<% if can? :create, Network %>
-  <%= link_to 'New Network', new_network_path %>
+    <% @networks.each do |network| %>
+      <tr>
+        <td><%= network.name %></td>
+        <td><%= link_to 'Show', network %></td>
+        <% if can? :join, network %>
+          <td><%= link_to 'Join', join_network_path(network), method: :put %></td>
+        <% end %>
+        <% if can? :update, network %>
+          <td><%= link_to 'Edit', edit_network_path(network) %></td>
+        <% end %>
+        <% if can? :destroy, network %>
+          <td><%= link_to 'Destroy', network, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <br/>
+  <% if can? :create, Network %>
+    <%= link_to 'New Network', new_network_path %>
+  <% end %>
 <% end %>

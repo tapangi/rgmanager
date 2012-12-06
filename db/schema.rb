@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203184933) do
+ActiveRecord::Schema.define(:version => 20121205230358) do
 
   create_table "coach_applications", :force => true do |t|
     t.string   "programming_experience"
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(:version => 20121203184933) do
   add_index "network_applications", ["user_id"], :name => "index_network_applications_on_user_id"
 
   create_table "networks", :force => true do |t|
-    t.string   "name",                                                                :null => false
     t.string   "country_alpha2_code",                                                 :null => false
     t.string   "state_province",                                                      :null => false
     t.string   "city",                                                                :null => false
@@ -100,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20121203184933) do
     t.string   "thumbnail_image"
     t.decimal  "latitude",            :precision => 10, :scale => 6, :default => 0.0, :null => false
     t.decimal  "longitude",           :precision => 10, :scale => 6, :default => 0.0, :null => false
+    t.boolean  "gmaps"
   end
 
   create_table "participant_applications", :force => true do |t|
