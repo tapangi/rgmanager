@@ -1,13 +1,22 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-
+#security
 gem 'devise'
+gem 'cancan'
+
+#image processing
+#gem 'rmagick'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave_direct'
-gem 'cancan'
+
+#countries and states
 gem "carmen-rails"
+
+#google maps
 gem "gmaps4rails"
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -29,9 +38,12 @@ group :assets do
   gem "therubyracer"
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
+
+
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
