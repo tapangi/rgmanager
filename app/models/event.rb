@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :start_date, :end_date
   belongs_to :network
   # setup for permission scheme
   has_many :roles, :as => :authorizable
@@ -18,4 +18,5 @@ class Event < ActiveRecord::Base
   has_many :organizers, :through => :roles, :source => :user, :conditions => "name = 'organizer'"
 
 
+  validates_presence_of :start_date, :end_date
 end

@@ -8,7 +8,7 @@ class Ability
     if user.role? :global_admin.to_s
       can :manage, :all
     else
-      can [:update, :destroy], Network do |network|
+      can [:update, :destroy, :create_event], Network do |network|
         user.role? "admin", network
       end
       can :join, Network do |network|

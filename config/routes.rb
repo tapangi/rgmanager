@@ -11,13 +11,14 @@ Rgmanager::Application.routes.draw do
     member do
       put 'join'
     end
+    resources :events do
+      #member do
+      #  put 'join'
+      #end
+    end
   end
 
-  resources :events do
-    #member do
-    #  put 'join'
-    #end
-  end
+  get "events", :to => "events#all"
 
 
   # The priority is based upon order of creation:

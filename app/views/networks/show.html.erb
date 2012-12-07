@@ -1,5 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="span9">
+  <p id="notice"><%= notice %></p>
+
+  <h3>Events</h3>
+  <% if can? :create_event, @network %>
+    <%= link_to 'New Event', new_network_event_path(@network) %>
+  <% end %>
 
 
-<%= link_to 'Edit', edit_network_path(@network) %> |
-<%= link_to 'Back', networks_path %>
+</div>
+<% content_for :left_bar do %>
+  <div class="span3">
+    <div class="banner">banner image</div>
+    <div class="detail">
+      <% if can? :update, @network %>
+        <%= link_to 'Edit', edit_network_path(@network) %> |
+      <% end %>
+      <%= link_to 'Back', networks_path %>
+    </div>
+  </div>
+
+<% end %>

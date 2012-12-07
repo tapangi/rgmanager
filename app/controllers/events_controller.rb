@@ -1,6 +1,17 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+
+  def all
+    @events = Event.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+
+
   def index
     @events = Event.all
 
@@ -24,6 +35,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
+    @network = Network.find(params[:network_id])
     @event = Event.new
 
     respond_to do |format|

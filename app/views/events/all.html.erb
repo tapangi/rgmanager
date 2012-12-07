@@ -1,0 +1,20 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= link_to 'Show', network_event(event.network) %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

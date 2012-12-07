@@ -39,7 +39,7 @@
       <div class="container nav-collapse">
         <ul class="nav">
           <li><%= link_to "Networks", networks_path, :class => current_page?(:controller => "/networks") ? "active":"" %></li>
-          <li><%= link_to "Events", events_path, :class => current_page?(:controller => "/events") ? "active":""%></li>
+          <li><%= link_to "Events", events_path, :class => current_page?(:controller => "/events", :action=>"all") ? "active":""%></li>
           <li><%= link_to "Materials", "/materials", :class => "" %></li>
           <li><%= link_to "About", "/about", :class => "" %></li>
           <li><%= link_to "Blog", "http://blog.railsgirls.com" %></li>
@@ -74,9 +74,9 @@
 <div class="container">
   <div class="row">
     <%= yield(:left_bar) %>
-    <div class="span9">
-      <%= yield %>
-    </div>
+
+    <%= yield %>
+
     <%= yield(:right_bar) %>
     <!--/span-->
   </div>
