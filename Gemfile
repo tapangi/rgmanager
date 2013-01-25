@@ -20,8 +20,8 @@ gem "gmaps4rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'pg'
+# gem 'pg'
+gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -38,7 +38,6 @@ group :assets do
   gem "therubyracer"
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
-
 
 end
 

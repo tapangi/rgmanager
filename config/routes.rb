@@ -1,7 +1,7 @@
 Rgmanager::Application.routes.draw do
   devise_for :users
 
-  get "dashboard", :to => "dashboard#index"
+  get "dashboard", :to => "home#index"
 
   get "state_province_list", :to => "networks#states_or_provinces"
 
