@@ -14,6 +14,9 @@ class Ability
       can :join, Network do |network|
         !user.role? "member", network
       end
+      can :leave, Network do |network|
+        user.role? "member", network
+      end
       can :read, :all
     end
     #

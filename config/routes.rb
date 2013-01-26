@@ -12,9 +12,7 @@ Rgmanager::Application.routes.draw do
       put 'join'
     end
     resources :events do
-      #member do
-      #  put 'join'
-      #end
+
     end
   end
 

@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
 
+  before_filter :load_network, :except => :all
   def all
     @events = Event.all
 
@@ -13,7 +14,7 @@ class EventsController < ApplicationController
 
 
   def index
-    @events = Event.all
+    @events = @network.events
 
     respond_to do |format|
       format.html # index.html.erb
@@ -35,8 +36,8 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @network = Network.find(params[:network_id])
-    @event = Event.new
+
+    @event = @network.events.build()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,11 +53,12 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+
+    @event = @network.events.build(params[:event])
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to [@network,@event], notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -92,4 +94,9 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+   def load_network
+     @network ||= Network.find(params[:network_id])
+   end
 end

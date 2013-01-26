@@ -3,7 +3,7 @@ class Network < ActiveRecord::Base
   has_many :roles, :as => :authorizable
   acts_as_gmappable
   mount_uploader :network_banner, NetworkBannerUploader
-
+  has_many :events
   validates_presence_of :city, :country_alpha2_code
 
   def gmaps4rails_address

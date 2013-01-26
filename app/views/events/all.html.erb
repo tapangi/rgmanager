@@ -9,7 +9,8 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= link_to 'Show', network_event(event.network) %></td>
+    <td>Workshop</td>
+    <td><%= link_to 'Show', network_event_path(event.network,event) %></td>
 
   </tr>
 <% end %>
