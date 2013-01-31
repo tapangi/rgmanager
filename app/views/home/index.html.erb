@@ -3,6 +3,6 @@
 <% content_for :sidebar do %>
     <h3>Upcoming Events</h3>
     <% @events.each do |event| %>
-      <%= event.name %><br>
+      <%= event.network.name %><br>
     <% end %>
 <% end %>
