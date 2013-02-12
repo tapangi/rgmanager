@@ -65,5 +65,6 @@ Thanks for contributing to this open source project and helping make Rails Girls
 Contact
 ========
 If you have questions about RG Manager or Rails Girls shoot us an email at railsgirlsdc@gmail.com or catch us on Twitter @RailsGirlsDC
+![Rails Girls DC Image](/app/assets/images/railsgirlsdcimage.jpg)
 
 You can also come to our meetups and contribute in person: [Rails Girls DC Meetup Info](http://www.meetup.com/Rails-Girls/Washington-DC/)
