@@ -39,11 +39,25 @@ We have big plans for RG Manager.  To view all the proposed future features we'l
 
 Other Important Information for RG Manager:
 -------------------------------------------
-###This project uses Postgres
-- You should download Postgres if you don't have it already [postgressapp.com](postgressapp.com)
-- You need to create the following databases within the PSQL shell:
-    - createdb -Orgmanager -Eutf8 rgmanager_development
-- Next run 'rake db:migrate db:seed'
+###How do I get the app working on my machine?
+- If you are brand new to GitHub work through [try.github.com](try.github.com)
+- Fork the repo and clone to your machine [instructions](https://help.github.com/articles/fork-a-repo)
+- Create an UpStream from the main repo.
+    - to do this, in your terminal run
+'''ruby
+remote add upstream https://github.com/tapangi/rgmanager.git
+'''
+- In the terminal, navigate to your rgmanager directory then run the following commands:
+    '''ruby
+    rake db:create
+    '''
+    '''ruby
+    rake db:schema:load
+    '''
+    '''ruby
+    rails s
+    '''
+- in your browser go to localhost:3000 this should pull up RGManager
 
 ###Fork then Clone Repo
 - Please remember to fork the repo first onto your GitHub account, then clone from your GitHub account onto your computer, do not clone directly from the master.
