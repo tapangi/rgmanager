@@ -39,6 +39,12 @@ We have big plans for RG Manager.  To view all the proposed future features we'l
 
 Other Important Information for RG Manager:
 -------------------------------------------
+###This project uses Postgres
+- You should download Postgres if you don't have it already [postgressapp.com](postgressapp.com)
+- You need to create the following databases within the PSQL shell:
+    - createdb -Orgmanager -Eutf8 rgmanager_development
+- Next run 'rake db:migrate db:seed'
+
 ###Fork then Clone Repo
 - Please remember to fork the repo first onto your GitHub account, then clone from your GitHub account onto your computer, do not clone directly from the master.
 - Remember, before you start working on the app, update your version of the repo if changes have been made to the master  
@@ -65,5 +71,6 @@ Thanks for contributing to this open source project and helping make Rails Girls
 Contact
 ========
 If you have questions about RG Manager or Rails Girls shoot us an email at railsgirlsdc@gmail.com or catch us on Twitter @RailsGirlsDC
+![Rails Girls DC Image](/app/assets/images/railsgirlsdcimage.jpg)
 
 You can also come to our meetups and contribute in person: [Rails Girls DC Meetup Info](http://www.meetup.com/Rails-Girls/Washington-DC/)
