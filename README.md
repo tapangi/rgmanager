@@ -39,6 +39,12 @@ We have big plans for RG Manager.  To view all the proposed future features we'l
 
 Other Important Information for RG Manager:
 -------------------------------------------
+###This project uses Postgres
+- You should download Postgres if you don't have it already [postgressapp.com](postgressapp.com)
+- You need to create the following databases within the PSQL shell:
+    - createdb -Orgmanager -Eutf8 rgmanager_development
+- Next run 'rake db:migrate db:seed'
+
 ###Fork then Clone Repo
 - Please remember to fork the repo first onto your GitHub account, then clone from your GitHub account onto your computer, do not clone directly from the master.
 - Remember, before you start working on the app, update your version of the repo if changes have been made to the master  
