@@ -5,7 +5,7 @@ Rgmanager::Application.routes.draw do
 
   get "state_province_list", :to => "networks#states_or_provinces"
 
-  root :to => "home#index"
+  root :to => "networks#index"
 
   resources :networks do
     member do
@@ -17,7 +17,7 @@ Rgmanager::Application.routes.draw do
   end
 
   get "events", :to => "events#all"
-
+  resources :materials
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
