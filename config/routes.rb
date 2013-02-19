@@ -5,7 +5,7 @@ Rgmanager::Application.routes.draw do
 
   get "state_province_list", :to => "networks#states_or_provinces"
 
-  root :to => "home#index"
+  root :to => "welcome#index"
 
   resources :networks do
     member do
