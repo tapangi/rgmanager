@@ -22,17 +22,17 @@ How do I get the app working on my machine?
 ###GitHub Help
 1. If you are brand new to GitHub work through [try.github.com](try.github.com)
 2. Fork the repo from Tapangi/rgmanager.  This will copy the application from user "Tapangi" to your GitHub account.  
-3. Clone the applicatino from YOUR Github/rgmanager location and clone to your machine [instructions](https://help.github.com/articles/fork-a-repo).  The reason you work from your account and on your machine is so that changes you make are only committed to the main repository once you're satisfied with the results.
+3. Clone the applicatino from YOUR Github/rgmanager location to your machine [instructions](https://help.github.com/articles/fork-a-repo).  The reason you work from your account and on your machine is so that changes you make are only committed to the main repository once you're satisfied with the results.
 4. Create an UpStream from the main repo (Tapangi) this will allow you to pull in any changes that occur on the main repository as your working on your project.
     - to do this, in your terminal run
-    - '''ruby remote add upstream https://github.com/tapangi/rgmanager.git'''
+    - <code>remote add upstream https://github.com/tapangi/rgmanager.git</code>
 
 ###Running the application on your computer
 1. Once you have forked and cloned the application onto your computer you need to set up the Postgres database
 2. For MACS: 
     - Go to [postgresapp.com](http://postgresapp.com/) and download the app.
 For Windows:
-    - Go to [EnterpriseDB](http://www.enterprisedb.com/products-services-training/pgdownload#windows)
+    - Go to [EnterpriseDB](http://www.enterprisedb.com/products-services-training/pgdownload#windows) and download the correct app.
 3. Once installed go to your terminal and run '''ruby psql -h localhost''' you should see something like this: 
     '''ruby
     psql (9.2.2)
