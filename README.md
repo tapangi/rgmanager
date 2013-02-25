@@ -33,8 +33,8 @@ How do I get the app working on my machine?
     - Go to [postgresapp.com](http://postgresapp.com/) and download the app.
 For Windows:
     - Go to [EnterpriseDB](http://www.enterprisedb.com/products-services-training/pgdownload#windows) and download the correct app.
-3. Once installed go to your terminal and run '''ruby psql -h localhost''' you should see something like this: 
-    ```ruby
+3. Once installed go to your terminal and run ``` psql -h localhost``` you should see something like this: 
+    ```
     psql (9.2.2)
     Type "help" for help.
 
@@ -42,7 +42,7 @@ For Windows:
     ```
     - This means you're in the Postgres shell and can run commands to create databases.
 4. Run these commands to create your databases:
-    ```ruby
+    ```
     createuser rgmanager
     createdb -Orgmanager -Eutf8 rgmanager_development
     createdb -Orgmanager -Eutf8 rgmanager_test
