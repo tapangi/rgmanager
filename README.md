@@ -15,55 +15,81 @@ Background:
 >
 >Then we realized it would be awesome to have a social network to connect all of the Rails Girls people (participants, coaches, sponsors, volunteers) before and after the event, as well as resources and opportunities/deals to continue their education.
 
-Initial Proposed RG Manager Features/Components:
-================================================
-Below you will find proposed features.  To **keep order** to this open source project we've done the hard part for you and **prioritized the features** so you know which ones have **immediate importance** to work on.
+Start Contributing:
+====================
+How do I get the app working on my machine?
+-------------------------------------------
+###GitHub Help
+1. If you are brand new to GitHub work through [try.github.com](try.github.com)
+2. Fork the repo from Tapangi/rgmanager.  This will copy the application from user "Tapangi" to your GitHub account.  
+3. Clone the applicatino from YOUR Github/rgmanager location to your machine [instructions](https://help.github.com/articles/fork-a-repo).  The reason you work from your account and on your machine is so that changes you make are only committed to the main repository once you're satisfied with the results.
+4. Create an UpStream from the main repo (Tapangi) this will allow you to pull in any changes that occur on the main repository as your working on your project.
+    - to do this, in your terminal run
+    - ```remote add upstream https://github.com/tapangi/rgmanager.git```
 
-###Visit our [feature tracker page](https://www.pivotaltracker.com/projects/700251/) to view all the project's priorities and the wireframes/sketches we have to go along with those priorities.  
+###Running the application on your computer
+1. Once you have forked and cloned the application onto your computer you need to set up the Postgres database
+2. For MACS: 
+    - Go to [postgresapp.com](http://postgresapp.com/) and download the app.
+For Windows:
+    - Go to [EnterpriseDB](http://www.enterprisedb.com/products-services-training/pgdownload#windows) and download the correct app.
+3. Once installed go to your terminal and run ``` psql -h localhost``` you should see something like this: 
+    ```
+    psql (9.2.2)
+    Type "help" for help.
 
-Below are our top 4 priorities at the moment(*remember to visit the feature tracker page for wireframes/sketches before starting*):
- 1. Homepage layout with correct root URL 
- 2. Sitemap
- 3. Event Detail Form (for hosting a Rails Girls Workshop Event)
- 4. Log-in Authentication and User Sign-up Form
+    Computer_Name=# 
+    ```
+    - This means you're in the Postgres shell and can run commands to create databases.
+4. Run these commands to create your databases:
+    ```
+    createuser rgmanager
+    createdb -Orgmanager -Eutf8 rgmanager_development
+    createdb -Orgmanager -Eutf8 rgmanager_test
+    ```
+    - leave this terminal window open and open a new one (apple key + t) this should bring up a terminal window that is still located in the rgmanager directory. Run '''ruby rake db:migrate'''
+5. Congrats you're databases are ready to go! You can now run ```ruby rails s``` in same same terminal window you just ran the rake commend.  You should see something like this:
+```
+WARNING: Nokogiri was built against LibXML version 2.7.3, but has dynamically loaded 2.7.8
+=> Booting WEBrick
+=> Rails 3.2.11 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2013-02-25 15:00:22] INFO  WEBrick 1.3.1
+[2013-02-25 15:00:22] INFO  ruby 1.9.3 (2012-11-10) [x86_64-darwin12.2.1]
+[2013-02-25 15:00:22] INFO  WEBrick::HTTPServer#start: pid=00000 port=3000
+```
+6.  In your browser type in "localhost:3000" and the app should appear!
 
-We have big plans for RG Manager.  To view all the proposed future features we'll again direct you to our [feature tracker page](https://www.pivotaltracker.com/projects/700251/).  This way you can get a feel for the future of RG Manager.
+How do I know what issues to work on with the app?
+--------------------------------------------------
+We've done the hard part for you and prioritized issues that need attention.  All the featuers that need to be built are listed in our [feature tracker page](https://www.pivotaltracker.com/projects/700251/).
+
+We will not list any issues in the feature tracker page that do not need immediate attention, so feel free to tackle any of the issues!
+
+###How will I know and other people know what issues are being worked on?
+We hope to have a lot of different people contributing to RGManager, however, this could cause some confusion as not everyone will know if someone is already working on the issue they want to tackle.
+
+For now we're keeping track of issues and who is working on them via the [RGManager Github Issue Page](https://github.com/tapangi/rgmanager/issues?state=open).
+
+If there is a feature you want to work on listed in the feature tracker page see if the issue is listed on our [RGManager Github Issue Page](https://github.com/tapangi/rgmanager/issues?state=open).  If so, read the comments for the issue and if you think you can work on the issue leave a comment with what you're planning to contribute then start working. If you want to work on a feature that is not yet listed on the [RGManager Github Issue Page](https://github.com/tapangi/rgmanager/issues?state=open) you can create the issue.
+
+When creating issues in RGManager GitHub try to be a descriptive as possible as to what you want to do and what the outcome should be so others can understand and follow along.
+
+When you have settled on what issue you're going to work on from the RGManager GitHub issue page you can follow these steps:
+- Go to your account page for RGManager and create a new branch.  The new branch should be the same as the issue number you want to work on ie: Issue_19, Issue_30 etc. 
+<div style="float:left;margin:0 10px 10px 0" markdown="1">
+![Creating a branch](/app/assets/images/create_branch.jpg)</div>
+- Work on the app on your local machine from the branch you just created.
+- When you're satisfied with your work push the code from your machine on the Issue# branch to your *account/rgmanager master branch*
+- If you're still satisfied with everything you can submit a pull-request from your *account/rgmanager master branch* to *tapangi/rgmanager master*
 
 ###Proposing an idea/feature
 >For now we ask that you email us at railsgirlsdc@gmail.com and include "RG Manager: idea" in the subject.  We'll send you a confirmation email that we've received your idea and let you know when it's posted to the feature tracker page.
 
-###Managing issues/bugs/feature work
->If you find a bug or issue, or if you're working on a feature please submit an "issue" for it on the [main GitHub repo page](https://github.com/tapangi/rgmanager/issues?state=open)
->
->Please use cucumber formatting for issues if possible.  You can also include a skill level for the issue if you like (easy, intermediate, advanced)
 
 Other Important Information for RG Manager:
--------------------------------------------
-###How do I get the app working on my machine?
-- If you are brand new to GitHub work through [try.github.com](try.github.com)
-- Fork the repo and clone to your machine [instructions](https://help.github.com/articles/fork-a-repo)
-- Create an UpStream from the main repo.
-    - to do this, in your terminal run
-'''ruby
-remote add upstream https://github.com/tapangi/rgmanager.git
-'''
-- In the terminal, navigate to your rgmanager directory then run the following commands:
-    '''ruby
-    rake db:create
-    '''
-    '''ruby
-    rake db:schema:load
-    '''
-    '''ruby
-    rails s
-    '''
-- in your browser go to localhost:3000 this should pull up RGManager
-
-###Fork then Clone Repo
-- Please remember to fork the repo first onto your GitHub account, then clone from your GitHub account onto your computer, do not clone directly from the master.
-- Remember, before you start working on the app, update your version of the repo if changes have been made to the master  
-- Remember to submit a pull request if you have changes you would like to push to the master
-
+===========================================
 ###Application User Roles:
 -  Applicant
 -  Participant (applicant, selected and attended)
@@ -85,7 +111,5 @@ Thanks for contributing to this open source project and helping make Rails Girls
 Contact
 ========
 If you have questions about RG Manager or Rails Girls shoot us an email at railsgirlsdc@gmail.com or catch us on Twitter @RailsGirlsDC
-<div style="float:left;margin:0 10px 10px 0" markdown="1">
-![Rails Girls DC Image](/app/assets/images/railsgirlsdcimage.jpg)</div>
 
 You can also come to our meetups and contribute in person: [Rails Girls DC Meetup Info](http://www.meetup.com/Rails-Girls/Washington-DC/)
