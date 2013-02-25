@@ -25,7 +25,7 @@ How do I get the app working on my machine?
 3. Clone the applicatino from YOUR Github/rgmanager location to your machine [instructions](https://help.github.com/articles/fork-a-repo).  The reason you work from your account and on your machine is so that changes you make are only committed to the main repository once you're satisfied with the results.
 4. Create an UpStream from the main repo (Tapangi) this will allow you to pull in any changes that occur on the main repository as your working on your project.
     - to do this, in your terminal run
-    - <code>remote add upstream https://github.com/tapangi/rgmanager.git</code>
+    - ```remote add upstream https://github.com/tapangi/rgmanager.git```
 
 ###Running the application on your computer
 1. Once you have forked and cloned the application onto your computer you need to set up the Postgres database
@@ -34,24 +34,22 @@ How do I get the app working on my machine?
 For Windows:
     - Go to [EnterpriseDB](http://www.enterprisedb.com/products-services-training/pgdownload#windows) and download the correct app.
 3. Once installed go to your terminal and run '''ruby psql -h localhost''' you should see something like this: 
-    '''ruby
+    ```ruby
     psql (9.2.2)
     Type "help" for help.
 
     Computer_Name=# 
-    '''
+    ```
     - This means you're in the Postgres shell and can run commands to create databases.
 4. Run these commands to create your databases:
-    '''ruby
+    ```ruby
     createuser rgmanager
- 
     createdb -Orgmanager -Eutf8 rgmanager_development
-
     createdb -Orgmanager -Eutf8 rgmanager_test
-    '''
+    ```
     - leave this terminal window open and open a new one (apple key + t) this should bring up a terminal window that is still located in the rgmanager directory. Run '''ruby rake db:migrate'''
-5. Congrats you're databases are ready to go! You can now run '''ruby rails s''' in same same terminal window you just ran the rake commend.  You should see something like this:
-'''
+5. Congrats you're databases are ready to go! You can now run ```ruby rails s``` in same same terminal window you just ran the rake commend.  You should see something like this:
+```
 WARNING: Nokogiri was built against LibXML version 2.7.3, but has dynamically loaded 2.7.8
 => Booting WEBrick
 => Rails 3.2.11 application starting in development on http://0.0.0.0:3000
@@ -60,7 +58,7 @@ WARNING: Nokogiri was built against LibXML version 2.7.3, but has dynamically lo
 [2013-02-25 15:00:22] INFO  WEBrick 1.3.1
 [2013-02-25 15:00:22] INFO  ruby 1.9.3 (2012-11-10) [x86_64-darwin12.2.1]
 [2013-02-25 15:00:22] INFO  WEBrick::HTTPServer#start: pid=00000 port=3000
-'''
+```
 6.  In your browser type in "localhost:3000" and the app should appear!
 
 How do I know what issues to work on with the app?
