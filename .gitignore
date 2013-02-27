@@ -9,6 +9,9 @@
 .DS_Store
 .idea
 
+# Ignore database.yml configuration file
+/config/database.yml
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
