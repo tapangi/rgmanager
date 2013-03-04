@@ -47,8 +47,8 @@ For Windows:
     createdb -Orgmanager -Eutf8 rgmanager_development
     createdb -Orgmanager -Eutf8 rgmanager_test
     ```
-    - leave this terminal window open and open a new one (apple key + t) this should bring up a terminal window that is still located in the rgmanager directory. Run '''ruby rake db:migrate'''
-5. Congrats you're databases are ready to go! You can now run ```ruby rails s``` in same same terminal window you just ran the rake commend.  You should see something like this:
+    - leave this terminal window open and open a new one (apple key + t) this should bring up a terminal window that is still located in the rgmanager directory. Run ```rake db:migrate db:seed```
+5. Congrats you're databases are ready to go! You can now run ```rails s``` in same same terminal window you just ran the rake commend.  You should see something like this:
 ```
 WARNING: Nokogiri was built against LibXML version 2.7.3, but has dynamically loaded 2.7.8
 => Booting WEBrick
